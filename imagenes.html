@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Nuestra Galeria</title>
+</head>
+<body>
+	<style type="text/css">
+    body {
+  background: #eee;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.photo {
+  margin: 10px 0;
+  width: 420px;
+  background: white;
+  padding: 10px;
+  opacity: 0.7;
+  border-radius: 5px;
+  border: 1px solid silver;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  transform: rotate(5deg);
+  transition: 0.3s all ease-in-out;
+  will-change: transform;
+  align-items: flex-start;
+}
+
+.photo img {
+  flex-basis: 100%;
+  width: 100px;
+}
+
+.photo figcaption {
+  margin-top: 10px;
+}
+
+.photo:nth-child(even) {
+  transform: rotate(-2deg) scale(0.8);
+}
+
+.photo:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+	</style>
+<figure class="photo">
+  <img src="https://i.imgur.com/pgLgz7i.jpeg" alt="Kotek Robert">
+  <figcaption>
+    ❤️ </figcaption>
+</figure>
+
+<figure class="photo">
+  <img src="https://i.imgur.com/5EAaG82.jpeg" alt="Kotek Puszek">
+  <figcaption>
+    ❤️
+  </figcaption>
+</figure>
+
+<figure class="photo">
+  <img src="https://i.imgur.com/5JVullj.jpeg" alt="Kotek Mruczek">
+  <figcaption>
+    ❤️ </figcaption>
+</figure>
+
+<figure class="photo">
+  <img src="https://i.imgur.com/mvjpmvG.jpeg" alt="Śpiący kot">
+  <figcaption>
+    ❤️ </figcaption>
+</figure>
+
+<figure class="photo">
+  <img src="  https://i.imgur.com/vJhARu4.jpeg" alt="Pies i kot">
+  <figcaption>
+    ❤️ </figcaption>
+</figure>
+
+<figure class="photo">
+  <img src="https://i.imgur.com/UMCOpfc.jpeg" alt="Szczeniaczek">
+  <figcaption>
+    ❤️ </figcaption>
+</figure>
+
+<figure class="photo">
+  <img src="https://i.imgur.com/DoUmo1s.jpeg" alt="Piesek Cziko">
+  <figcaption>
+    ❤️ </figcaption>
+</figure>
+
+<figure class="photo">
+  <img src="https://i.imgur.com/vINheDN.jpeg" alt="Chow chow">
+  <figcaption>
+    ❤️ </figcaption>
+</figure>
+
+<figure class="photo">
+  <img src="https://i.imgur.com/MSDNdV1.jpeg" alt="Chow chow">
+  <figcaption>
+    ❤️ </figcaption>
+</figure>
+
+<figure class="photo">
+  <img src="https://i.imgur.com/Qf0dP9a.jpeg" alt="Chow chow">
+  <figcaption>
+    ❤️ </figcaption>
+</figure>
+
+<figure class="photo">
+  <img src="https://i.imgur.com/dy5wCCi.jpeg" alt="Chow chow">
+  <figcaption>
+    ❤️ </figcaption>
+</figure>
+</body>
+</html>
