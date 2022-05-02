@@ -9,7 +9,6 @@
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style type="text/css">
-
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800|Poppins&display=swap");
 * {
   margin: 0;
@@ -17,39 +16,22 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
-.myButton {
-	box-shadow:inset 0px -3px 0px 0px #000000;
-	background:linear-gradient(to bottom, #000000 5%, #000000 100%);
-	background-color:#000000;
-	border-radius:26px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-  font-family: "Montserrat", sans-serif;
-	font-size:15px;
-	padding:10px 15px;
-	text-decoration:none;
+body {
+  background-color: #000000;
 }
-.myButton:hover {
-	background:linear-gradient(to bottom, #000000 5%, #000000 100%);
-	background-color:#000000;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
 .cards {
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
   padding: 30px;
+  color: white;
 }
 .cards h1 {
   font-size: 40px;
   margin: 0 0 30px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: white;
 }
 .services {
   display: flex;
@@ -61,9 +43,10 @@
   flex: 1;
   margin: 20px;
   padding: 20px;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 4px;
   transition: all 0.3s ease;
+  color: white;
 }
 .content .fab {
   font-size: 70px;
@@ -80,8 +63,8 @@
   background: white;
 }
 .content-1:hover {
-   border-color: #1da1f2;
-  background: #1B89C5;
+  border-color: #1da1f2;
+  background: #1b89c5;
 }
 .content-1:hover a {
   color: #1da1f2;
@@ -112,7 +95,7 @@
 }
 .content a {
   margin: 22px 0;
-  background: black;
+  background: #02a08b;
   color: white;
   text-decoration: none;
   text-transform: uppercase;
@@ -130,6 +113,29 @@
     flex-direction: column;
   }
 }
+
+.myButton {
+  box-shadow: inset 0px -3px 0px 0px #02a08b;
+  background: linear-gradient(to bottom, #02a08b 5%, #02a08b 100%);
+  background-color: #02a08b;
+  border-radius: 26px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #40fae1 5%, #40fae1 100%);
+  background-color: #40fae1;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
 </style>
 </head>
 <body>
