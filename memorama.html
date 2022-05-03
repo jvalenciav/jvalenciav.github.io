@@ -1,0 +1,330 @@
+<<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+</head>
+<body>
+<style type="text/css">
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One&text=%3FYOUWON!");
+body {
+  align-items: center;
+  background-image: radial-gradient(circle 448px at center, #16d9e3 0%, #30c7ec 48%, #46aef7 100%);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+.board {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  position: relative;
+  top: 20px;
+  transform-style: preserve-3d;
+  transform: rotateX(50deg) rotateZ(22deg);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.clone {
+  display: none;
+}
+
+.cube {
+  -webkit-animation: enter 600ms ease-out;
+          animation: enter 600ms ease-out;
+  transform-style: preserve-3d;
+  transform: translateZ(0) scale(1);
+  transition: all 350ms ease-out;
+  transform-origin: 50% 50%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.cube.flipped {
+  pointer-events: none;
+  transform: rotateY(180deg) translateZ(0) scale(1);
+  transition: all 500ms ease-out;
+}
+.cube.matched {
+  pointer-events: none;
+  transform: rotateY(180deg) translateZ(0) scale(1);
+  -webkit-animation: match 650ms ease-out;
+          animation: match 650ms ease-out;
+}
+
+.face {
+  outline: 1px solid transparent;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-shadow: inset 0 0 2px 1px #fff0d2;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  transform-origin: 50% 50%;
+  width: 100px;
+}
+
+.face:nth-child(1) {
+  background-color: wheat;
+  cursor: pointer;
+  transform: rotateY(0deg) translateZ(10px);
+  transition: background 150ms ease-out;
+}
+.face:nth-child(1):before {
+  align-items: center;
+  bottom: 0;
+  color: #93794c;
+  content: "?";
+  display: flex;
+  font-family: "Fredoka One", cursive;
+  font-size: 60px;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.face:nth-child(2) {
+  background-color: #efca86;
+  width: 20px;
+  transform: rotateY(90deg) translateZ(90px);
+}
+
+.face:nth-child(3) {
+  background-color: dodgerblue;
+  transform: rotateY(180deg) translateZ(10px);
+}
+
+.face:nth-child(4) {
+  background-color: #efca86;
+  width: 20px;
+  transform: rotateY(270deg) translateZ(10px);
+}
+
+.face:nth-child(5) {
+  background-color: #efca86;
+  height: 20px;
+  transform: rotateX(90deg) translateZ(10px);
+}
+
+.face:nth-child(6) {
+  background-color: #efca86;
+  height: 20px;
+  transform: rotateX(-90deg) translateZ(90px);
+}
+
+.overlay {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  transition: all 500ms ease-out;
+  z-index: 100;
+}
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms ease-out;
+}
+.overlay.hidden .gameover {
+  transform: translateY(60px);
+  transition: all 300ms ease-out;
+}
+
+.gameover {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 120px;
+  border: 12px solid #50b8f7;
+  color: #2e2e2e;
+  display: flex;
+  font-family: "Fredoka One", cursive;
+  font-size: 40px;
+  height: 120px;
+  width: 340px;
+  justify-content: space-between;
+  padding: 0 10px 0 30px;
+  transform: translateY(0);
+  transition: all 500ms ease-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.reset {
+  background-color: #fbc300;
+  border-radius: 50%;
+  border: 0;
+  box-shadow: 0px 6px 0px 0px #f2a003;
+  cursor: pointer;
+  display: block;
+  height: 94px;
+  margin-left: 20px;
+  position: relative;
+  top: -3px;
+  width: 96px;
+}
+.reset:active {
+  box-shadow: none;
+  top: 0;
+}
+.reset:focus {
+  outline: 0;
+}
+
+.twitter__link {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  z-index: -1;
+  background: #fff;
+  border-radius: 20px;
+  height: 30px;
+  text-decoration: none;
+  padding-right: 10px;
+  justify-content: space-between;
+  font-family: sans-serif;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  color: #00aced;
+  font-size: 14px;
+  width: 74px;
+  opacity: 0.4;
+  z-index: 10;
+}
+.twitter__link:hover {
+  opacity: 1;
+}
+
+.twitter__icon {
+  height: 30px;
+}
+
+[data-tile=egg] div:nth-child(3) {
+  background: #fff8e7 url(https://i.imgur.com/5EAaG82.jpeg) center center no-repeat;
+  background-size: 70px;
+}
+
+[data-tile=dino] div:nth-child(3) {
+  background: #fff8e7 url(https://i.imgur.com/vJhARu4.jpeg) bottom center no-repeat;
+  background-size: 70px;
+}
+
+[data-tile=ahahah] div:nth-child(3) {
+  background: #fff8e7 url(https://i.imgur.com/dy5wCCi.jpeg) center center no-repeat;
+  background-size: 70px;
+}
+
+[data-tile=tri] div:nth-child(3) {
+  background: #fff8e7 url(https://i.imgur.com/mvjpmvG.jpeg) center center no-repeat;
+  background-size: 70px;
+}
+
+[data-tile=ptero] div:nth-child(3) {
+  background: #fff8e7 url(https://i.imgur.com/5JVullj.jpeg) center center no-repeat;
+  background-size: 70px;
+}
+
+[data-tile=erupt] div:nth-child(3) {
+  background: #fff8e7 url(https://i.imgur.com/pgLgz7i.jpeg) center center no-repeat;
+  background-size: 85px;
+}
+
+audio {
+  display: none;
+}
+
+@-webkit-keyframes enter {
+  0% {
+    transform: translateZ(-20px) scale(0.3);
+  }
+  50% {
+    transform: translateZ(20px) scale(1.02);
+  }
+  100% {
+    transform: translateZ(0) scale(1);
+  }
+}
+
+@keyframes enter {
+  0% {
+    transform: translateZ(-20px) scale(0.3);
+  }
+  50% {
+    transform: translateZ(20px) scale(1.02);
+  }
+  100% {
+    transform: translateZ(0) scale(1);
+  }
+}
+@-webkit-keyframes match {
+  0% {
+    transform: rotateY(180deg) translateZ(-15px);
+  }
+  50% {
+    transform: rotateY(180deg) translateZ(10px);
+  }
+  100% {
+    transform: rotateY(180deg) translateZ(0);
+  }
+}
+@keyframes match {
+  0% {
+    transform: rotateY(180deg) translateZ(-15px);
+  }
+  50% {
+    transform: rotateY(180deg) translateZ(10px);
+  }
+  100% {
+    transform: rotateY(180deg) translateZ(0);
+  }
+}
+</style>
+<div class='board'></div>
+<div class='clone'>
+  <div class='face'></div>
+  <div class='face'></div>
+  <div class='face'></div>
+  <div class='face'></div>
+  <div class='face'></div>
+  <div class='face'></div>
+</div>
+<div class='overlay hidden'>
+  <div class='gameover'>
+    <p>Ganasteeee!</p>
+    <button class='reset'>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+        <path d="M485.8 113.9L349.3 250.5c-3.5 3.5-3.5 9.1 0 12.6l136.6 136.6c5.6 5.6 15.2 1.6 15.2-6.3V120.2c-.1-7.9-9.7-11.9-15.3-6.3z" fill="#fff" />
+        <path d="M500 194.8V317c125.9 0 228 102.1 228 228S625.9 773 500 773v121.8c193.3 0 350-156.7 350-350s-156.7-350-350-350zM272 545c0-55.1 19.6-105.7 52.1-145.1 6.5-7.9 5.9-19.5-1.4-26.8l-58.3-58.3c-8.2-8.2-21.7-7.7-29.3 1-53 61.5-85.1 141.5-85.1 229 0 193.3 156.7 350 350 350V773c-125.9 0-228-102.1-228-228z" fill="#fff" />
+      </svg>
+    </button>
+  </div>
+</div>
+<script src="memorama.js"></script>
+
+</body>
+</html>
+
+<!-- Preload Game Sounds -->
