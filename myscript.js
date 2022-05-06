@@ -59,6 +59,11 @@ class TextScramble {
 }
 
 const phrases = [
+  "Te quiero porque eres la novia mas preciosa del mundo",
+  "Te quiero pprqie eres la chica mas valiente del mundo",
+  "Te quiero porque JAMAS te rindes",
+  "Te quiero porque me motivas",
+  "Te quiero porque eres simplemente magnifica",
   "Te quiero porque nunca habia sentido esto por nadie",
   "Te quiero porque te has convertido en lo mas especial para mi",
   "Te quiero porque contigo todo es mejor",
