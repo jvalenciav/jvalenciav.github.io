@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Especificaciones</title>
+</head>
+<body>
+<style type="text/css">
+	@import url("https://fonts.googleapis.com/css?family=Abel");
+.div_centrado {
+  height: 250px;
+  /*IMPORTANTE*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  background-color: var(--background);
+  display: block;
+  width: 480px;
+  min-height: 90px;
+  cursor: pointer;
+  padding: 15px;
+  margin: calc(50vh - 30px) auto 0 auto;
+  border: 3px solid var(--primary);
+  box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--green),
+    20px -20px 0 -3px var(--background), 20px -20px var(--yellow),
+    30px -30px 0 -3px var(--background), 30px -30px var(--orange),
+    40px -40px 0 -3px var(--background), 40px -40px var(--red);
+}
+
+.card:hover {
+  animation: shadow-wave 1s ease infinite;
+}
+
+@keyframes shadow-wave {
+  0% {
+    border: 3px solid var(--primary);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--green),
+      20px -20px 0 -3px var(--background), 20px -20px var(--yellow),
+      30px -30px 0 -3px var(--background), 30px -30px var(--orange),
+      40px -40px 0 -3px var(--background), 40px -40px var(--red);
+  }
+  20% {
+    border: 3px solid var(--red);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--primary),
+      20px -20px 0 -3px var(--background), 20px -20px var(--green),
+      30px -30px 0 -3px var(--background), 30px -30px var(--yellow),
+      40px -40px 0 -3px var(--background), 40px -40px var(--orange);
+  }
+  40% {
+    border: 3px solid var(--orange);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--red),
+      20px -20px 0 -3px var(--background), 20px -20px var(--primary),
+      30px -30px 0 -3px var(--background), 30px -30px var(--green),
+      40px -40px 0 -3px var(--background), 40px -40px var(--yellow);
+  }
+  60% {
+    border: 3px solid var(--yellow);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--orange),
+      20px -20px 0 -3px var(--background), 20px -20px var(--red),
+      30px -30px 0 -3px var(--background), 30px -30px var(--primary),
+      40px -40px 0 -3px var(--background), 40px -40px var(--green);
+  }
+  80% {
+    border: 3px solid var(--green);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--yellow),
+      20px -20px 0 -3px var(--background), 20px -20px var(--orange),
+      30px -30px 0 -3px var(--background), 30px -30px var(--red),
+      40px -40px 0 -3px var(--background), 40px -40px var(--primary);
+  }
+  100% {
+    border: 3px solid var(--primary);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--green),
+      20px -20px 0 -3px var(--background), 20px -20px var(--yellow),
+      30px -30px 0 -3px var(--background), 30px -30px var(--orange),
+      40px -40px 0 -3px var(--background), 40px -40px var(--red);
+  }
+}
+
+:root {
+  --primary: #22d2a0;
+  --secondary: #192824;
+  --background: #192824;
+  --green: #1fc11b;
+  --yellow: #ffd913;
+  --orange: #ff9c55;
+  --red: #ff5555;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: radial-gradient(
+    var(--secondary) 30%,
+    var(--background) 30%
+  );
+  background-size: 2px 3px;
+  font-family: Abel, Arial, Verdana, sans-serif;
+  color: var(--primary);
+}
+
+.class {
+  counter-increment: classes;
+  counter-reset: topics;
+}
+
+.class {
+  counter-increment: classes;
+  counter-reset: topics;
+}
+
+.class-topic {
+  counter-increment: topics;
+  padding-left: 1.5em;
+}
+
+.card p {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: 14px;
+  font-family: "Archivo", "Archivo", sans-serif;
+  font-weight: normal;
+}
+
+</style>
+<link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Archivo:700&display=swap" rel="stylesheet">
+<div class="div_centrado">
+
+  <div class="card">
+    <p>
+    <h1>
+      Especificaciones de Codigo
+    </h1>
+    </p>
+    <div class="class">
+      <h2 class="class-title">Lenguajes Utilizados </h2> <br>
+      <p class="class-topic">JavaScritp</p>
+      <p class="class-topic">HTML*</p>
+      <p class="class-topic">CSS</p>
+      <p class="class-topic">JQuery</p>
+    </div>
+    <h2 class="class-title">Líneas de código escritas : <i>2,742</i></h2>
+    <br>
+    <h2 class="class-title">Tiempo estimado: </h2>
+    <p class="class-topic"><i>No importa; El regalo mas valioso que le pueden dar a alguien es el Tiempo!</i></p>
+  </div>
+
+</div>
+</body>
+</html>
