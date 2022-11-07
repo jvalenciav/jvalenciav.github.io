@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Corazon</title>
+</head>
+<body>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Nunito:600");
+:root {
+  --heart-size: 100px;
+  --heart-bg-color: crimson;
+  --heart-text-color: white;
+  --heart-shadow-color: pink;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Nunito", sans-serif;
+}
+
+.heart {
+  position: relative;
+  width: var(--heart-size);
+  height: var(--heart-size);
+  color: var(--heart-text-color);
+  background-color: var(--heart-bg-color);
+  border-bottom-left-radius: 6px;
+  cursor: pointer;
+  transform: rotate(-45deg);
+  transition: transform 0.5s ease-out;
+}
+.heart:before, .heart:after {
+  content: "";
+  position: absolute;
+  width: var(--heart-size);
+  height: var(--heart-size);
+  background-color: var(--heart-bg-color);
+  border-radius: 100%;
+  z-index: 1;
+}
+.heart:before {
+  bottom: 50%;
+  box-shadow: var(--heart-shadow-color) 8px 0 0;
+}
+.heart:after {
+  left: 50%;
+  box-shadow: var(--heart-shadow-color) 8px 0 0;
+}
+.heart:active {
+  transform: scale(0.98) rotate(-45deg);
+  transition: transform 0s;
+}
+.heart:active .heart-text {
+  opacity: 0;
+}
+
+.heart-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  font-size: 20px;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.1) 2px 2px 0;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 2;
+  transform: translateZ(0) rotate(45deg) scale(1);
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
+}
+.heart-text span {
+  display: block;
+}
+    </style>
+<div class="heart" id="heart-container">
+    <div class="heart-text"><span>click</span><span>Amor </span></div>
+  </div>
+  <script src="myscript2.js"></script>
+
+</body>
+</html>
