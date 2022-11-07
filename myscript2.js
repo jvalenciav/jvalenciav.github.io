@@ -4,7 +4,13 @@ class Heart {
       const text = heart.querySelector('.heart-text');
       const sayings = [
       'Eres Preciosa',
-      'Mi Fer :3',
+      'Eres la mas pro',
+      'Diosaaaaaaaa',
+      'Eres un 100 :3',
+           'Te amito',
+                'Te adoro',
+
+'Mi Fer :3',
       'Mi Reyna',
       'Me encantas',
       'Nos casamos?',
